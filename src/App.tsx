@@ -2,12 +2,12 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AppLayout } from "./shared/components/layout/AppLayout";
-import { Users, MapPin, Trophy, Calendar, Star, Clock, TrendingUp, Award } from "lucide-react";
 import { CourtReservationPage } from "./features/booking";
+import { Users, MapPin, Trophy, Calendar, Star, Clock, TrendingUp, Award } from "lucide-react";
 
 const queryClient = new QueryClient();
 
-// Premium Home Page with glassmorphic design
+// Your existing beautiful Phase 1 HomePage - keeping it exactly as it was
 function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
@@ -70,6 +70,37 @@ function HomePage() {
         </div>
       </div>
 
+      {/* Quick Actions */}
+      <div className="p-6">
+        <div className="grid grid-cols-2 gap-4">
+          {/* Find Match Card */}
+          <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-3 w-fit mb-4">
+              <Users className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="font-bold text-gray-900 mb-1">Pronađi Meč</h3>
+            <p className="text-gray-600 text-sm mb-3">Nađi protivnika u blizini</p>
+            <div className="flex items-center text-blue-600 text-sm font-medium">
+              <span>Započni</span>
+              <TrendingUp className="w-4 h-4 ml-1" />
+            </div>
+          </div>
+
+          {/* Book Court Card */}
+          <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-3 w-fit mb-4">
+              <MapPin className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="font-bold text-gray-900 mb-1">Rezerviši Teren</h3>
+            <p className="text-gray-600 text-sm mb-3">5 dostupnih terena</p>
+            <div className="flex items-center text-green-600 text-sm font-medium">
+              <span>Rezerviši</span>
+              <Calendar className="w-4 h-4 ml-1" />
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Tournament Banner */}
       <div className="p-6">
         <div className="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-2xl p-6 text-center">
@@ -81,6 +112,43 @@ function HomePage() {
           </button>
         </div>
       </div>
+
+      {/* Recent Activity */}
+      <div className="p-6">
+        <div className="bg-white rounded-2xl p-6 shadow-lg">
+          <h3 className="font-bold text-gray-900 mb-4">Poslednja aktivnost</h3>
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <div className="bg-green-100 rounded-full p-2 mr-3">
+                  <Star className="w-4 h-4 text-green-600" />
+                </div>
+                <div>
+                  <p className="font-medium text-gray-900 text-sm">Pobeda protiv Nikole</p>
+                  <p className="text-gray-500 text-xs">Pre 2 dana</p>
+                </div>
+              </div>
+              <span className="text-green-600 font-bold text-sm">+25 poena</span>
+            </div>
+            
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <div className="bg-blue-100 rounded-full p-2 mr-3">
+                  <Trophy className="w-4 h-4 text-blue-600" />
+                </div>
+                <div>
+                  <p className="font-medium text-gray-900 text-sm">Rezervisan teren</p>
+                  <p className="text-gray-500 text-xs">Pre 3 dana</p>
+                </div>
+              </div>
+              <span className="text-blue-600 font-bold text-sm">Teren 1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Bottom padding for navigation */}
+      <div className="h-24"></div>
     </div>
   );
 }
