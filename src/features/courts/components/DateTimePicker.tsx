@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Calendar, Clock, ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '../../../shared/utils/cn';
-import dayjs from 'dayjs';
+import dayjs from '../../../shared/utils/dayjs';
 
 interface DateTimePickerProps {
   selectedDate?: string;

@@ -8,6 +8,7 @@ import { MatchPage } from "./pages/MatchPage";
 import { CourtsPage } from "./pages/CourtsPage";
 import { ProfilePage } from "./pages/ProfilePage";
 import { CourtReservationPage } from "./features/courts/pages/CourtReservationPage";
+import { MatchSearchPage } from "./features/matches/pages/MatchSearchPage";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ function App(): JSX.Element {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/match" element={<MatchPage />} />
+            <Route path="/match/search" element={<MatchSearchPage />} />
             <Route path="/courts" element={<CourtsPage />} />
             <Route path="/courts/reserve" element={<CourtReservationPage />} />
             <Route path="/profile" element={<ProfilePage />} />
