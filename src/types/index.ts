@@ -20,18 +20,6 @@ export interface Club {
   reviews: number;
 }
 
-export interface Player {
-  id: string;
-  name: string;
-  image: string;
-  level: 'beginner' | 'intermediate' | 'advanced' | 'expert';
-  rating: number;
-  matches: number;
-  wins: number;
-  winRate: number;
-  points: number;
-}
-
 export interface Notification {
   id: string;
   type: 'match-result' | 'confirmed' | 'info';
