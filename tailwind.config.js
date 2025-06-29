@@ -31,9 +31,6 @@ export default {
         textSecondary: '#666666',
         textHint: '#999999'
       },
-      fontFamily: {
-        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
-      },
       maxWidth: {
         'mobile': '480px'
       },
