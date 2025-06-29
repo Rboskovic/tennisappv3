@@ -27,8 +27,8 @@ export function BottomNavigation(): JSX.Element {
     },
     {
       id: "tournaments",
-      path: "/tournaments",
-      label: "Turniri",
+      path: "/profile",
+      label: "Profil",
       icon: Trophy,
     },
   ];

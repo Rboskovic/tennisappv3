@@ -32,61 +32,11 @@ export interface Player {
   points: number;
 }
 
-export interface Trainer {
-  id: string;
-  name: string;
-  image: string;
-  rating: string;
-  reviews: string;
-  bio: string;
-  specializations: string[];
-  hourlyRate: number;
-  availability: Record<string, boolean>;
-}
-
-export interface Tournament {
-  id: string;
-  name: string;
-  status: 'open' | 'closed' | 'locked';
-  participants: {
-    current: number;
-    max: number;
-  };
-  startDate: string;
-  endDate: string;
-  entryFee?: number;
-  credits?: number;
-  pointsRequired?: number;
-  location: string;
-  type: 'singles' | 'doubles';
-  clubs: string[];
-}
-
-export interface League extends Tournament {
-  matches: number;
-  duration: string;
-  leagueFee?: number;
-  statusReason?: string;
-}
-
 export interface Notification {
   id: string;
   type: 'match-result' | 'confirmed' | 'info';
   title: string;
   message: string;
   time: string;
-  actionText?: string;
-  actionHandler?: () => void;
-}
-
-export interface User {
-  id: string;
-  name: string;
-  image: string;
-  level: string;
-  rating: number;
-  points: number;
-  matches: number;
-  wins: number;
-  winRate: number;
+  actionText: string;
 }

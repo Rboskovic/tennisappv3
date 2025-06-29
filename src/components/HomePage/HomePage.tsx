@@ -2,15 +2,7 @@ import React from 'react';
 import { Bell, Menu, ChevronRight, MapPin, Clock, Star, Users } from 'lucide-react';
 import { clubs } from '../../data/clubs';
 import { useNavigate } from 'react-router-dom';
-
-interface Notification {
-  id: string;
-  type: 'match-result' | 'confirmed' | 'info';
-  title: string;
-  message: string;
-  time: string;
-  actionText: string;
-}
+import { Notification } from '../../types';
 
 const notifications: Notification[] = [
   {
