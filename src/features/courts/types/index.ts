@@ -1,75 +1,51 @@
-// src/features/courts/types/index.ts
 export interface Club {
   id: string;
   name: string;
-  location: string;
-  image: string;
+  address: string;
   courts: Court[];
   amenities: string[];
   pricePerHour: number;
-  distance?: number;
+  image?: string;
 }
 
 export interface Court {
   id: string;
   number: number;
-  type: "hard" | "clay" | "grass";
+  surface: 'hard' | 'clay' | 'grass';
   isIndoor: boolean;
   isAvailable: boolean;
-  pricePerHour: number;
 }
 
 export interface TimeSlot {
+  id: string;
   time: string;
   isAvailable: boolean;
   price: number;
-  court?: Court;
 }
 
-export interface BookingFormData {
-  clubId: string;
-  courtId?: string;
-  date: string;
-  time: string;
-  duration: number; // in minutes
-  type: "single" | "recurring";
-  notes?: string;
+export interface BookingStep {
+  id: 'club' | 'datetime' | 'confirmation';
+  title: string;
+  isComplete: boolean;
+}
+
+export interface BookingData {
+  club?: Club;
+  date?: string;
+  timeSlot?: TimeSlot;
+  court?: Court;
+  duration: number;
+  totalPrice: number;
 }
 
 export interface Booking {
   id: string;
-  clubId: string;
-  clubName: string;
-  courtId: string;
-  courtNumber: number;
+  club: Club;
+  court: Court;
   date: string;
-  time: string;
+  timeSlot: TimeSlot;
   duration: number;
   totalPrice: number;
-  status: "confirmed" | "pending" | "cancelled";
-  userId: string;
+  status: 'confirmed' | 'pending' | 'cancelled';
   createdAt: string;
-}
-
-export interface CourtAvailability {
-  clubId: string;
-  date: string;
-  timeSlots: TimeSlot[];
-}
-
-// Filter and search types
-export interface CourtSearchFilters {
-  clubs: string[];
-  date?: string;
-  timePreferences: string[];
-  courtType?: "hard" | "clay" | "grass";
-  isIndoor?: boolean;
-  maxPrice?: number;
-  duration: number;
-}
-
-export interface CourtSearchResult {
-  club: Club;
-  availableSlots: TimeSlot[];
-  totalSlots: number;
 }
