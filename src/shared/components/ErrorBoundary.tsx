@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from "react";
+import React, { Component, ReactNode } from 'react';
 
 interface Props {
   children: ReactNode;
@@ -6,7 +6,6 @@ interface Props {
 
 interface State {
   hasError: boolean;
-  error?: Error;
 }
 
 export class ErrorBoundary extends Component<Props, State> {
@@ -15,37 +14,24 @@ export class ErrorBoundary extends Component<Props, State> {
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error: Error): State {
-    return { hasError: true, error };
-  }
-
-  componentDidCatch(error: Error, errorInfo: any) {
-    console.error('ErrorBoundary caught an error:', error, errorInfo);
+  static getDerivedStateFromError(): State {
+    return { hasError: true };
   }
 
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen flex items-center justify-center p-6">
-          <div className="text-center max-w-md">
-            <div className="text-6xl font-bold text-red-600 mb-4">⚠️</div>
-            <h1 className="text-2xl font-bold text-neutral-900 mb-2">
-              Došlo je do greške
-            </h1>
-            <p className="text-neutral-600 mb-6">
-              Nešto je pošlo po zlu. Pokušajte da osvežite stranicu.
-            </p>
-            <button
-              onClick={() => window.location.reload()}
-              className="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
-            >
-              Osveži stranicu
-            </button>
-          </div>
+        <div className="p-6 text-center">
+          <h2 className="text-xl font-bold text-gray-900 mb-2">Oops! Something went wrong</h2>
+          <button 
+            onClick={() => window.location.reload()} 
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg"
+          >
+            Reload App
+          </button>
         </div>
       );
     }
-
     return this.props.children;
   }
 }
